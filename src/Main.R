@@ -52,7 +52,7 @@ write.csv(FDS_RA_3010.2000.reduit, file="..\\csv_cheptel_2000_2010_corse\\FDS_RA
 FDS_RA_3010.2000.reduit.omit <- na.omit(FDS_RA_3010.2000.reduit)
 summary(FDS_RA_3010.2000.reduit.omit)
 
-write.csv(FDS_RA_3010.2010.reduit, file="..\\csv_cheptel_2000_2010_corse\\FDS_RA_3010_2000_reduit_omit.csv", row.names = FALSE)
+write.csv(FDS_RA_3010.2000.reduit.omit, file="..\\csv_cheptel_2000_2010_corse\\FDS_RA_3010_2000_reduit_omit.csv", row.names = FALSE)
 
 ################################################################################
 #                                Formatage 2010                                #
@@ -61,7 +61,6 @@ write.csv(FDS_RA_3010.2010.reduit, file="..\\csv_cheptel_2000_2010_corse\\FDS_RA
 variable <- FDS_RA_3010.2010["CANTON_MOD"]
 variable.is.Corse <- apply(variable, 1, is.Corse)
 res <- variable$CANTON_MOD[variable.is.Corse]
-
 
 FDS_RA_3010.2010.reduit <- data.frame(
   "ANNREF" = FDS_RA_3010.2010$ANNREF[variable.is.Corse],
@@ -92,4 +91,4 @@ write.csv(FDS_RA_3010.2010.reduit, file="..\\csv_cheptel_2000_2010_corse\\FDS_RA
 FDS_RA_3010.2010.reduit.omit <- na.omit(FDS_RA_3010.2010.reduit)
 summary(FDS_RA_3010.2010.reduit.omit)
 
-write.csv(FDS_RA_3010.2010.reduit, file="..\\csv_cheptel_2000_2010_corse\\FDS_RA_3010_2010_reduit_omit.csv", row.names = FALSE)
+write.csv(FDS_RA_3010.2010.reduit.omit, file="..\\csv_cheptel_2000_2010_corse\\FDS_RA_3010_2010_reduit_omit.csv", row.names = FALSE)
