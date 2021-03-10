@@ -37,9 +37,6 @@ FDS_RA_3010.2000.reduit <- data.frame(
   "N118" = FDS_RA_3010.2000$N118[variable.is.Corse],
   "N118_MOD" = FDS_RA_3010.2000$N118_MOD[variable.is.Corse],
   "N118_LIB" = FDS_RA_3010.2000$N118_LIB[variable.is.Corse],
-  "N118" = FDS_RA_3010.2000$N118[variable.is.Corse],
-  "N118_MOD" = FDS_RA_3010.2000$N118_MOD[variable.is.Corse],
-  "N118_LIB" = FDS_RA_3010.2000$N118_LIB[variable.is.Corse],
   "N027" = FDS_RA_3010.2000$N027[variable.is.Corse],
   "N027_MOD" = FDS_RA_3010.2000$N027_MOD[variable.is.Corse],
   "N027_LIB" = FDS_RA_3010.2000$N027_LIB[variable.is.Corse],
@@ -50,7 +47,12 @@ FDS_RA_3010.2000.reduit <- data.frame(
 
 summary(FDS_RA_3010.2000.reduit)
 
-write.csv(FDS_RA_3010.2000.reduit, file="..\\FDS_RA_3010_2000_reduit.csv", row.names = FALSE)
+write.csv(FDS_RA_3010.2000.reduit, file="..\\csv_cheptel_2000_2010_corse\\FDS_RA_3010_2000_reduit.csv", row.names = FALSE)
+
+FDS_RA_3010.2000.reduit.omit <- na.omit(FDS_RA_3010.2000.reduit)
+summary(FDS_RA_3010.2000.reduit.omit)
+
+write.csv(FDS_RA_3010.2010.reduit, file="..\\csv_cheptel_2000_2010_corse\\FDS_RA_3010_2000_reduit_omit.csv", row.names = FALSE)
 
 ################################################################################
 #                                Formatage 2010                                #
@@ -75,9 +77,6 @@ FDS_RA_3010.2010.reduit <- data.frame(
   "N118" = FDS_RA_3010.2010$N118[variable.is.Corse],
   "N118_MOD" = FDS_RA_3010.2010$N118_MOD[variable.is.Corse],
   "N118_LIB" = FDS_RA_3010.2010$N118_LIB[variable.is.Corse],
-  "N118" = FDS_RA_3010.2010$N118[variable.is.Corse],
-  "N118_MOD" = FDS_RA_3010.2010$N118_MOD[variable.is.Corse],
-  "N118_LIB" = FDS_RA_3010.2010$N118_LIB[variable.is.Corse],
   "N027" = FDS_RA_3010.2010$N027[variable.is.Corse],
   "N027_MOD" = FDS_RA_3010.2010$N027_MOD[variable.is.Corse],
   "N027_LIB" = FDS_RA_3010.2010$N027_LIB[variable.is.Corse],
@@ -88,4 +87,9 @@ FDS_RA_3010.2010.reduit <- data.frame(
 
 summary(FDS_RA_3010.2010.reduit)
 
-write.csv(FDS_RA_3010.2010.reduit, file="..\\FDS_RA_3010_2010_reduit.csv", row.names = FALSE)
+write.csv(FDS_RA_3010.2010.reduit, file="..\\csv_cheptel_2000_2010_corse\\FDS_RA_3010_2010_reduit.csv", row.names = FALSE)
+
+FDS_RA_3010.2010.reduit.omit <- na.omit(FDS_RA_3010.2010.reduit)
+summary(FDS_RA_3010.2010.reduit.omit)
+
+write.csv(FDS_RA_3010.2010.reduit, file="..\\csv_cheptel_2000_2010_corse\\FDS_RA_3010_2010_reduit_omit.csv", row.names = FALSE)
