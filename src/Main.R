@@ -50,6 +50,8 @@ FDS_RA_3010.2000.reduit <- data.frame(
 
 summary(FDS_RA_3010.2000.reduit)
 
+write.csv(FDS_RA_3010.2000.reduit, file="..\\FDS_RA_3010_2000_reduit.csv", row.names = FALSE)
+
 ################################################################################
 #                                Formatage 2010                                #
 ################################################################################
@@ -85,3 +87,5 @@ FDS_RA_3010.2010.reduit <- data.frame(
 )
 
 summary(FDS_RA_3010.2010.reduit)
+
+write.csv(FDS_RA_3010.2010.reduit, file="..\\FDS_RA_3010_2010_reduit.csv", row.names = FALSE)
