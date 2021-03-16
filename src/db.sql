@@ -2,30 +2,30 @@
 -- ***************************************************;
 
 
--- ************************************** `cheptels_par_commune`
+-- ************************************** `cheptels_par_canton`
 
-CREATE TABLE `cheptels_par_commune`
+CREATE TABLE `cheptels_par_canton`
 (
  `id`               int NOT NULL ,
- `NOM`              varchar(45) NOT NULL ,
- `ANNREF`           date NOT NULL ,
- `CANTON`           varchar(45) NOT NULL ,
- `CANTON_MOD`       varchar(45) NOT NULL ,
- `CANTON_LIB`       varchar(45) NULL ,
- `RA_3010_DIM2`     varchar(45) NULL ,
- `RA_3010_DIM2_MOD` integer NULL ,
- `RA_3010_DIM2_LIB` varchar(45) NULL ,
- `RA_3010_DIM3`     varchar(45) NULL ,
- `RA_3010_DIM3_MOD` integer NULL ,
- `RA_3010_DIM3_LIB` varchar(45) NULL ,
- `N118`             varchar(45) NULL ,
- `N118_MOD`         double NULL ,
- `N118_LIB`         varchar(45) NULL ,
- `N027`             varchar(45) NULL ,
- `N027_MOD`         double NULL ,
- `N027_LIB`         varchar(45) NULL ,
- `VALEUR`           integer NULL ,
- `QUALITE`          binary NULL ,
+ `nom`              varchar(45) NOT NULL ,
+ `annref`           date NOT NULL ,
+ `canton`           varchar(45) NOT NULL ,
+ `canton_mod`       varchar(45) NOT NULL ,
+ `canton_lib`       varchar(45) NULL ,
+ `ra_3010_dim2`     varchar(45) NULL ,
+ `ra_3010_dim2_mod` integer NULL ,
+ `ra_3010_dim2_lib` varchar(45) NULL ,
+ `ra_3010_dim3`     varchar(45) NULL ,
+ `ra_3010_dim3_mod` integer NULL ,
+ `ra_3010_dim3_lib` varchar(45) NULL ,
+ `n118`             varchar(45) NULL ,
+ `n118_mod`         double NULL ,
+ `n118_lib`         varchar(45) NULL ,
+ `n027`             varchar(45) NULL ,
+ `n027_mod`         double NULL ,
+ `n027_lib`         varchar(45) NULL ,
+ `valeur`           integer NULL ,
+ `qualite`          binary NULL ,
 
 PRIMARY KEY (`id`)
 );
@@ -39,13 +39,48 @@ PRIMARY KEY (`id`)
 CREATE TABLE `communes_par_territoire`
 (
  `id`          int NOT NULL ,
- `commune`     linestring NOT NULL ,
- `canton`      linestring NOT NULL ,
- `departement` linestring NOT NULL ,
- `territoire`  linestring NOT NULL ,
+ `commune`     varchar(45) NOT NULL ,
+ `canton`      varchar(45) NOT NULL ,
+ `departement` varchar(45) NOT NULL ,
+ `territoire`  varchar(45) NOT NULL ,
 
 PRIMARY KEY (`id`)
 );
+
+
+-- ****************** SqlDBM: MySQL ******************;
+-- ***************************************************;
+
+
+-- ************************************** `territoires`
+
+CREATE TABLE `territoires`
+(
+ `id`            NOT NULL ,
+ `territoire_1` varchar(45) NOT NULL ,
+
+PRIMARY KEY (`id`)
+);
+
+-- ****************** SqlDBM: MySQL ******************;
+-- ***************************************************;
+
+
+-- ************************************** `corresp_canton_territoire`
+
+CREATE TABLE `corresp_canton_territoire`
+(
+ `id`            int NOT NULL ,
+ `canton`        varchar(45) NOT NULL ,
+ `id_territoire`  NOT NULL ,
+
+PRIMARY KEY (`id`),
+KEY `fkIdx_155` (`id_territoire`),
+CONSTRAINT `FK_154` FOREIGN KEY `fkIdx_155` (`id_territoire`) REFERENCES `territoires` (`id`),
+ CONSTRAINT `check_126` CHECK (  )
+);
+
+
 
 -- ****************** SqlDBM: MySQL ******************;
 -- ***************************************************;
@@ -55,12 +90,14 @@ PRIMARY KEY (`id`)
 
 CREATE TABLE `volumes_eau`
 (
- `id`         int NOT NULL ,
- `date`       year NOT NULL ,
- `territoire` linestring NOT NULL ,
- `volume`     bigint NOT NULL ,
+ `id`            int NOT NULL ,
+ `date`          year NOT NULL ,
+ `volume`        bigint NOT NULL ,
+ `id_territoire`  NOT NULL ,
 
-PRIMARY KEY (`id`)
+PRIMARY KEY (`id`),
+KEY `fkIdx_150` (`id_territoire`),
+CONSTRAINT `FK_149` FOREIGN KEY `fkIdx_150` (`id_territoire`) REFERENCES `territoires` (`id`)
 );
 
 -- ****************** SqlDBM: MySQL ******************;
@@ -72,24 +109,44 @@ PRIMARY KEY (`id`)
 CREATE TABLE `faits`
 (
  `id`               int NOT NULL ,
- `RA_3010_DIM2_MOD` integer NOT NULL ,
- `RA_3010_DIM3_MOD` integer NOT NULL ,
- `N118_MOD`         integer NOT NULL ,
- `N027_MOD`         integer NOT NULL ,
- `VALEUR`           binary NOT NULL ,
- `cheptels`         int NOT NULL ,
- `communes`         int NOT NULL ,
- `volumes`          int NOT NULL ,
+ `ra_3010_dim2_mod` integer NOT NULL ,
+ `ra_3010_dim3_mod` integer NOT NULL ,
+ `n118_mod`         integer NOT NULL ,
+ `n027_mod`         integer NOT NULL ,
+ `valeur`           binary NOT NULL ,
+ `id_cheptel`       int NOT NULL ,
+ `id_commune`       int NOT NULL ,
+ `id_volume`        int NOT NULL ,
  `volume`           bigint NOT NULL ,
 
 PRIMARY KEY (`id`),
-KEY `fkIdx_62` (`communes`),
-CONSTRAINT `FK_61` FOREIGN KEY `fkIdx_62` (`communes`) REFERENCES `communes_par_territoire` (`id`),
-KEY `fkIdx_69` (`volumes`),
-CONSTRAINT `FK_68` FOREIGN KEY `fkIdx_69` (`volumes`) REFERENCES `volumes_eau` (`id`),
-KEY `fkIdx_76` (`cheptels`),
-CONSTRAINT `FK_75` FOREIGN KEY `fkIdx_76` (`cheptels`) REFERENCES `cheptels_par_commune` (`id`),
+KEY `fkIdx_62` (`id_commune`),
+CONSTRAINT `FK_61` FOREIGN KEY `fkIdx_62` (`id_commune`) REFERENCES `communes_par_territoire` (`id`),
+KEY `fkIdx_69` (`id_volume`),
+CONSTRAINT `FK_68` FOREIGN KEY `fkIdx_69` (`id_volume`) REFERENCES `volumes_eau` (`id`),
+KEY `fkIdx_76` (`id_cheptel`),
+CONSTRAINT `FK_75` FOREIGN KEY `fkIdx_76` (`id_cheptel`) REFERENCES `cheptels_par_canton` (`id`),
  CONSTRAINT `check_41` CHECK ( communes_par_territoire.id )
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
