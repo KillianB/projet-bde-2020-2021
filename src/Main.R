@@ -104,3 +104,22 @@ FDS_RA_3010.2010.reduit.omit <- na.omit(FDS_RA_3010.2010.reduit)
 summary(FDS_RA_3010.2010.reduit.omit)
 
 write.csv(FDS_RA_3010.2010.reduit.omit, file="..\\csv_cheptel_2000_2010_corse\\FDS_RA_3010_2010_reduit_omit.csv", row.names = FALSE, fileEncoding = "UTF-8")
+
+################################################################################
+#                           Communes par territoire                            #
+################################################################################
+
+communes_par_territoire_de_projet_de_la_collectivite_territoriale_de_corse$Commune <- lowerCase(communes_par_territoire_de_projet_de_la_collectivite_territoriale_de_corse$Commune)
+communes_par_territoire_de_projet_de_la_collectivite_territoriale_de_corse$Canton <- lowerCase(communes_par_territoire_de_projet_de_la_collectivite_territoriale_de_corse$Canton)
+communes_par_territoire_de_projet_de_la_collectivite_territoriale_de_corse$Département <- lowerCase(communes_par_territoire_de_projet_de_la_collectivite_territoriale_de_corse$Département)
+communes_par_territoire_de_projet_de_la_collectivite_territoriale_de_corse$Territoire.de.projet <- lowerCase(communes_par_territoire_de_projet_de_la_collectivite_territoriale_de_corse$Territoire.de.projet)
+
+write.csv(communes_par_territoire_de_projet_de_la_collectivite_territoriale_de_corse, file="..\\csv_volEau_&_communes\\communes_par_territoire_de_projet_de_la_collectivite_territoriale_de_corse.csv", row.names = FALSE, fileEncoding = "UTF-8")
+
+################################################################################
+#                                Volumes d'eau                                 #
+################################################################################
+
+volumeseaubrutefacturesparperimetres$Territoire <- lowerCase(volumeseaubrutefacturesparperimetres$Territoire)
+
+write.csv(volumeseaubrutefacturesparperimetres, file="..\\csv_volEau_&_communes\\volumes_eau_brute_factures_par_perimetres.csv", row.names = FALSE, fileEncoding = "UTF-8")
