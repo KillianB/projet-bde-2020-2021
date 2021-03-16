@@ -35,25 +35,25 @@ res <- FDS_RA_3010.2000["CANTON_LIB"]
 res <- apply(res, 1, remove.digit.Corse)
 
 FDS_RA_3010.2000.reduit <- data.frame(
-  "NOM" = lowerCase(FDS_RA_3010.2010$NOM[variable.is.Corse]),
-  "ANNREF" = FDS_RA_3010.2000$ANNREF[variable.is.Corse],
-  "CANTON" = lowerCase(FDS_RA_3010.2000$CANTON[variable.is.Corse]),
-  "CANTON_MOD" = lowerCase(FDS_RA_3010.2000$CANTON_MOD[variable.is.Corse]),
-  "CANTON_LIB" = lowerCase(res[variable.is.Corse]),
-  "RA_3010_DIM2" = lowerCase(FDS_RA_3010.2000$RA_3010_DIM2[variable.is.Corse]),
-  "RA_3010_DIM2_MOD" = FDS_RA_3010.2000$RA_3010_DIM2_MOD[variable.is.Corse],
-  "RA_3010_DIM2_LIB" = lowerCase(FDS_RA_3010.2000$RA_3010_DIM2_LIB[variable.is.Corse]),
-  "RA_3010_DIM3" = lowerCase(FDS_RA_3010.2000$RA_3010_DIM3[variable.is.Corse]),
-  "RA_3010_DIM3_MOD" = FDS_RA_3010.2000$RA_3010_DIM3_MOD[variable.is.Corse],
-  "RA_3010_DIM3_LIB" = lowerCase(FDS_RA_3010.2000$RA_3010_DIM3_LIB[variable.is.Corse]),
-  "N118" = lowerCase(FDS_RA_3010.2000$N118[variable.is.Corse]),
-  "N118_MOD" = FDS_RA_3010.2000$N118_MOD[variable.is.Corse],
-  "N118_LIB" = lowerCase(FDS_RA_3010.2000$N118_LIB[variable.is.Corse]),
-  "N027" = lowerCase(FDS_RA_3010.2000$N027[variable.is.Corse]),
-  "N027_MOD" = FDS_RA_3010.2000$N027_MOD[variable.is.Corse],
-  "N027_LIB" = lowerCase(FDS_RA_3010.2000$N027_LIB[variable.is.Corse]),
-  "VALEUR" = FDS_RA_3010.2000$VALEUR[variable.is.Corse],
-  "QUALITE" = lowerCase(FDS_RA_3010.2000$QUALITE[variable.is.Corse])
+  "nom" = lowerCase(FDS_RA_3010.2010$NOM[variable.is.Corse]),
+  "annref" = FDS_RA_3010.2000$ANNREF[variable.is.Corse],
+  "canton" = lowerCase(FDS_RA_3010.2000$CANTON[variable.is.Corse]),
+  "canton_mod" = lowerCase(FDS_RA_3010.2000$CANTON_MOD[variable.is.Corse]),
+  "canton_lib" = lowerCase(res[variable.is.Corse]),
+  "ra_3010_dim2" = lowerCase(FDS_RA_3010.2000$RA_3010_DIM2[variable.is.Corse]),
+  "ra_3010_dim2_mod" = FDS_RA_3010.2000$RA_3010_DIM2_MOD[variable.is.Corse],
+  "ra_3010_dim2_lib" = lowerCase(FDS_RA_3010.2000$RA_3010_DIM2_LIB[variable.is.Corse]),
+  "ra_3010_dim3" = lowerCase(FDS_RA_3010.2000$RA_3010_DIM3[variable.is.Corse]),
+  "ra_3010_dim3_mod" = FDS_RA_3010.2000$RA_3010_DIM3_MOD[variable.is.Corse],
+  "ra_3010_dim3_lib" = lowerCase(FDS_RA_3010.2000$RA_3010_DIM3_LIB[variable.is.Corse]),
+  "n118" = lowerCase(FDS_RA_3010.2000$N118[variable.is.Corse]),
+  "n118_mod" = FDS_RA_3010.2000$N118_MOD[variable.is.Corse],
+  "n118_lib" = lowerCase(FDS_RA_3010.2000$N118_LIB[variable.is.Corse]),
+  "n027" = lowerCase(FDS_RA_3010.2000$N027[variable.is.Corse]),
+  "n027_mod" = FDS_RA_3010.2000$N027_MOD[variable.is.Corse],
+  "n027_lib" = lowerCase(FDS_RA_3010.2000$N027_LIB[variable.is.Corse]),
+  "valeur" = FDS_RA_3010.2000$VALEUR[variable.is.Corse],
+  "qualite" = lowerCase(FDS_RA_3010.2000$QUALITE[variable.is.Corse])
 )
 
 summary(FDS_RA_3010.2000.reduit)
@@ -75,25 +75,25 @@ res <- FDS_RA_3010.2010["CANTON_LIB"]
 res <- apply(res, 1, remove.digit.Corse)
 
 FDS_RA_3010.2010.reduit <- data.frame(
-  "NOM" = lowerCase(FDS_RA_3010.2010$NOM[variable.is.Corse]),
-  "ANNREF" = FDS_RA_3010.2010$ANNREF[variable.is.Corse],
-  "CANTON" = lowerCase(FDS_RA_3010.2010$CANTON[variable.is.Corse]),
-  "CANTON_MOD" = lowerCase(FDS_RA_3010.2010$CANTON_MOD[variable.is.Corse]),
-  "CANTON_LIB" = lowerCase(res[variable.is.Corse]),
-  "RA_3010_DIM2" = lowerCase(FDS_RA_3010.2010$RA_3010_DIM2[variable.is.Corse]),
-  "RA_3010_DIM2_MOD" = FDS_RA_3010.2010$RA_3010_DIM2_MOD[variable.is.Corse],
-  "RA_3010_DIM2_LIB" = lowerCase(FDS_RA_3010.2010$RA_3010_DIM2_LIB[variable.is.Corse]),
-  "RA_3010_DIM3" = lowerCase(FDS_RA_3010.2010$RA_3010_DIM3[variable.is.Corse]),
-  "RA_3010_DIM3_MOD" = FDS_RA_3010.2010$RA_3010_DIM3_MOD[variable.is.Corse],
-  "RA_3010_DIM3_LIB" = lowerCase(FDS_RA_3010.2010$RA_3010_DIM3_LIB[variable.is.Corse]),
-  "N118" = lowerCase(FDS_RA_3010.2010$N118[variable.is.Corse]),
-  "N118_MOD" = FDS_RA_3010.2010$N118_MOD[variable.is.Corse],
-  "N118_LIB" = lowerCase(FDS_RA_3010.2010$N118_LIB[variable.is.Corse]),
-  "N027" = lowerCase(FDS_RA_3010.2010$N027[variable.is.Corse]),
-  "N027_MOD" = FDS_RA_3010.2010$N027_MOD[variable.is.Corse],
-  "N027_LIB" = lowerCase(FDS_RA_3010.2010$N027_LIB[variable.is.Corse]),
-  "VALEUR" = FDS_RA_3010.2010$VALEUR[variable.is.Corse],
-  "QUALITE" = lowerCase(FDS_RA_3010.2010$QUALITE[variable.is.Corse])
+  "nom" = lowerCase(FDS_RA_3010.2010$NOM[variable.is.Corse]),
+  "annref" = FDS_RA_3010.2010$ANNREF[variable.is.Corse],
+  "canton" = lowerCase(FDS_RA_3010.2010$CANTON[variable.is.Corse]),
+  "canton_mod" = lowerCase(FDS_RA_3010.2010$CANTON_MOD[variable.is.Corse]),
+  "canton_lib" = lowerCase(res[variable.is.Corse]),
+  "ra_3010_dim2" = lowerCase(FDS_RA_3010.2010$RA_3010_DIM2[variable.is.Corse]),
+  "ra_3010_dim2_mod" = FDS_RA_3010.2010$RA_3010_DIM2_MOD[variable.is.Corse],
+  "ra_3010_dim2_lib" = lowerCase(FDS_RA_3010.2010$RA_3010_DIM2_LIB[variable.is.Corse]),
+  "ra_3010_dim3" = lowerCase(FDS_RA_3010.2010$RA_3010_DIM3[variable.is.Corse]),
+  "ra_3010_dim3_mod" = FDS_RA_3010.2010$RA_3010_DIM3_MOD[variable.is.Corse],
+  "ra_3010_dim3_lib" = lowerCase(FDS_RA_3010.2010$RA_3010_DIM3_LIB[variable.is.Corse]),
+  "n118" = lowerCase(FDS_RA_3010.2010$N118[variable.is.Corse]),
+  "n118_mod" = FDS_RA_3010.2010$N118_MOD[variable.is.Corse],
+  "n118_lib" = lowerCase(FDS_RA_3010.2010$N118_LIB[variable.is.Corse]),
+  "n027" = lowerCase(FDS_RA_3010.2010$N027[variable.is.Corse]),
+  "n027_mod" = FDS_RA_3010.2010$N027_MOD[variable.is.Corse],
+  "n027_lib" = lowerCase(FDS_RA_3010.2010$N027_LIB[variable.is.Corse]),
+  "valeur" = FDS_RA_3010.2010$VALEUR[variable.is.Corse],
+  "qualite" = lowerCase(FDS_RA_3010.2010$QUALITE[variable.is.Corse])
 )
 
 summary(FDS_RA_3010.2010.reduit)
