@@ -118,6 +118,9 @@ FDS_RA_3010.2000.reduit <- data.frame(
   "qualite" = format.text(FDS_RA_3010.2000$QUALITE[variable.filter])
 )
 
+# changement de l'année pouravoir une correspondance avec la table volume d'eau
+FDS_RA_3010.2000.reduit$annref <- (FDS_RA_3010.2000.reduit$annref + 3)
+
 summary(FDS_RA_3010.2000.reduit)
 
 write.csv(FDS_RA_3010.2000.reduit, file="..\\csv_cheptel_2000_2010_corse\\FDS_RA_3010_2000_reduit.csv", row.names = FALSE, fileEncoding = "UTF-8")
