@@ -14,25 +14,25 @@ DROP TABLE faits CASCADE CONSTRAINTS;
 
 CREATE TABLE cheptels_par_canton
 (
-    id               number(10) NOT NULL,
+    id               integer(5) NOT NULL,
     nom              varchar(100) NOT NULL,
-    annref           number(4) NOT NULL,
+    annref           integer(4) NOT NULL,
     canton           varchar(100) NOT NULL,
     canton_mod       varchar(100) NOT NULL,
     canton_lib       varchar(100) NULL,
     ra_3010_dim2     varchar(100) NULL,
-    ra_3010_dim2_mod number(10) NULL,
+    ra_3010_dim2_mod integer(10) NULL,
     ra_3010_dim2_lib varchar(100) NULL,
     ra_3010_dim3     varchar(100) NULL,
-    ra_3010_dim3_mod number(10) NULL,
+    ra_3010_dim3_mod integer(5) NULL,
     ra_3010_dim3_lib varchar(100) NULL,
     n118             varchar(100) NULL,
-    n118_mod         float(10) NULL,
+    n118_mod         number(10) NULL,
     n118_lib         varchar(100) NULL,
     n027             varchar(100) NULL,
-    n027_mod         float(10) NULL,
+    n027_mod         integer(5) NULL,
     n027_lib         varchar(100) NULL,
-    valeur           number(10) NULL,
+    valeur           integer(10) NULL,
     qualite          varchar(3) NULL,
 
     CONSTRAINT cheptels_par_canton_pk PRIMARY KEY (id)
@@ -46,7 +46,7 @@ CREATE TABLE cheptels_par_canton
 
 CREATE TABLE communes_par_territoire
 (
-    id          number(10) NOT NULL,
+    id          integer(5) NOT NULL,
     commune     varchar(100) NOT NULL,
     canton      varchar(100) NOT NULL,
     departement varchar(100) NOT NULL,
@@ -64,7 +64,7 @@ CREATE TABLE communes_par_territoire
 
 CREATE TABLE territoires
 (
-    id           number(10) NOT NULL,
+    id           integer(5) NOT NULL,
     territoire_1 varchar(100) NOT NULL,
 
     CONSTRAINT territoires_pk PRIMARY KEY (id)
@@ -78,9 +78,9 @@ CREATE TABLE territoires
 
 CREATE TABLE corresp_canton_territoire
 (
-    id     number(10) NOT NULL,
+    id     integer(5) NOT NULL,
     canton varchar(100) NOT NULL,
-    id_territoire     number(10) NOT NULL,
+    id_territoire     integer(5) NOT NULL,
 
     CONSTRAINT corresp_canton_territoire_pk PRIMARY KEY (id),
     CONSTRAINT fk_territoires_1 FOREIGN KEY (id_territoire) REFERENCES territoires (id)
@@ -96,10 +96,10 @@ CREATE TABLE corresp_canton_territoire
 
 CREATE TABLE volumes_eau
 (
-    id     number(10) NOT NULL,
-    annee   number(4) NOT NULL,
-    volume number(20) NOT NULL,
-    id_territoire number(10) NOT NULL,
+    id     integer(5) NOT NULL,
+    annee   integer(4) NOT NULL,
+    volume integer(20) NOT NULL,
+    id_territoire integer(5) NOT NULL,
 
     CONSTRAINT volumes_eau_pk PRIMARY KEY (id),
     CONSTRAINT fk_territoires_2 FOREIGN KEY (id_territoire) REFERENCES territoires (id)
@@ -113,16 +113,16 @@ CREATE TABLE volumes_eau
 
 CREATE TABLE faits
 (
-    id               number(10) NOT NULL,
-    ra_3010_dim2_mod number(10) NOT NULL,
-    ra_3010_dim3_mod number(10) NOT NULL,
+    id               integer(5) NOT NULL,
+    ra_3010_dim2_mod integer(10) NOT NULL,
+    ra_3010_dim3_mod integer(5) NOT NULL,
     n118_mod         number(10) NOT NULL,
-    n027_mod         number(10) NOT NULL,
-    valeur           number(10) NOT NULL,
-    id_cheptel       number(10) NOT NULL,
-    id_commune       number(10) NOT NULL,
-    id_volume        number(10) NOT NULL,
-    volume           number(20) NOT NULL,
+    n027_mod         integer(5) NOT NULL,
+    valeur           integer(10) NOT NULL,
+    id_cheptel       integer(5) NOT NULL,
+    id_commune       integer(5) NOT NULL,
+    id_volume        integer(5) NOT NULL,
+    volume           integer(20) NOT NULL,
 
     CONSTRAINT faits_pk PRIMARY KEY (id),
     CONSTRAINT fk_communes_par_territoire FOREIGN KEY (id_commune) REFERENCES communes_par_territoire (id),
