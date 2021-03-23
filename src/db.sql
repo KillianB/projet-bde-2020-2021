@@ -83,7 +83,7 @@ CREATE TABLE corresp_canton_territoire
     id_territoire     number(10) NOT NULL,
 
     CONSTRAINT corresp_canton_territoire_pk PRIMARY KEY (id),
-    CONSTRAINT fk_territoires FOREIGN KEY (id_territoire) REFERENCES territoires (id)
+    CONSTRAINT fk_territoires_1 FOREIGN KEY (id_territoire) REFERENCES territoires (id)
 );
 
 
@@ -97,12 +97,12 @@ CREATE TABLE corresp_canton_territoire
 CREATE TABLE volumes_eau
 (
     id     number(10) NOT NULL,
-    date   number(4) NOT NULL,
+    annee   number(4) NOT NULL,
     volume number(20) NOT NULL,
     id_territoire number(10) NOT NULL,
 
     CONSTRAINT volumes_eau_pk PRIMARY KEY (id),
-    CONSTRAINT fk_territoires FOREIGN KEY (id_territoire) REFERENCES territoires (id)
+    CONSTRAINT fk_territoires_2 FOREIGN KEY (id_territoire) REFERENCES territoires (id)
 );
 
 -- ****************** SqlDBM: MySQL ******************;
