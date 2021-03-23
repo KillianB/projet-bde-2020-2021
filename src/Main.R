@@ -128,7 +128,7 @@ write.csv(FDS_RA_3010.2000.reduit, file="..\\csv_cheptel_2000_2010_corse\\FDS_RA
 FDS_RA_3010.2000.reduit.omit <- na.omit(FDS_RA_3010.2000.reduit)
 summary(FDS_RA_3010.2000.reduit.omit)
 
-write.csv(FDS_RA_3010.2000.reduit.omit, file="..\\CSVFINAL\\FDS_RA_3010_2000_reduit_omit.csv", row.names = FALSE, fileEncoding = "UTF-8")
+write.csv(FDS_RA_3010.2000.reduit.omit, file="..\\csv_cheptel_2000_2010_corse\\FDS_RA_3010_2000_reduit_omit.csv", row.names = FALSE, fileEncoding = "UTF-8")
 
 ################################################################################
 #                                Formatage 2010                                #
@@ -177,13 +177,45 @@ write.csv(FDS_RA_3010.2010.reduit, file="..\\csv_cheptel_2000_2010_corse\\FDS_RA
 FDS_RA_3010.2010.reduit.omit <- na.omit(FDS_RA_3010.2010.reduit)
 summary(FDS_RA_3010.2010.reduit.omit)
 
-write.csv(FDS_RA_3010.2010.reduit.omit, file="..\\CSVFINAL\\FDS_RA_3010_2010_reduit_omit.csv", row.names = FALSE, fileEncoding = "UTF-8")
+write.csv(FDS_RA_3010.2010.reduit.omit, file="..\\csv_cheptel_2000_2010_corse\\FDS_RA_3010_2010_reduit_omit.csv", row.names = FALSE, fileEncoding = "UTF-8")
+
+################################################################################
+#                     Cheptels par cantons (2000 + 2010)                       #
+################################################################################
+
+cheptels_par_cantons <- data.frame(
+  "id" = 1:length(c(FDS_RA_3010.2000.reduit.omit$nom, FDS_RA_3010.2010.reduit.omit$nom)),
+  "nom" = c(FDS_RA_3010.2000.reduit.omit$nom, FDS_RA_3010.2010.reduit.omit$nom),
+  "annref" = c(FDS_RA_3010.2000.reduit.omit$annref, FDS_RA_3010.2010.reduit.omit$annref),
+  "canton" = c(FDS_RA_3010.2000.reduit.omit$canton, FDS_RA_3010.2010.reduit.omit$canton),
+  "canton_mod" = c(FDS_RA_3010.2000.reduit.omit$canton_mod, FDS_RA_3010.2010.reduit.omit$canton_mod),
+  "canton_lib" = c(FDS_RA_3010.2000.reduit.omit$canton_lib, FDS_RA_3010.2010.reduit.omit$canton_lib),
+  "ra_3010_dim2" = c(FDS_RA_3010.2000.reduit.omit$ra_3010_dim2, FDS_RA_3010.2010.reduit.omit$ra_3010_dim2),
+  "ra_3010_dim2_mod" = c(FDS_RA_3010.2000.reduit.omit$ra_3010_dim2_mod, FDS_RA_3010.2010.reduit.omit$ra_3010_dim2_mod),
+  "ra_3010_dim2_lib" = c(FDS_RA_3010.2000.reduit.omit$ra_3010_dim2_lib, FDS_RA_3010.2010.reduit.omit$ra_3010_dim2_lib),
+  "ra_3010_dim3" = c(FDS_RA_3010.2000.reduit.omit$ra_3010_dim3, FDS_RA_3010.2010.reduit.omit$ra_3010_dim3),
+  "ra_3010_dim3_mod" = c(FDS_RA_3010.2000.reduit.omit$ra_3010_dim3_mod, FDS_RA_3010.2010.reduit.omit$ra_3010_dim3_mod),
+  "ra_3010_dim3_lib" = c(FDS_RA_3010.2000.reduit.omit$ra_3010_dim3_lib, FDS_RA_3010.2010.reduit.omit$ra_3010_dim3_lib),
+  "n118" = c(FDS_RA_3010.2000.reduit.omit$n118, FDS_RA_3010.2010.reduit.omit$n118),
+  "n118_mod" = c(FDS_RA_3010.2000.reduit.omit$n118_mod, FDS_RA_3010.2010.reduit.omit$n118_mod),
+  "n118_lib" = c(FDS_RA_3010.2000.reduit.omit$n118_lib, FDS_RA_3010.2010.reduit.omit$n118_lib),
+  "n027" = c(FDS_RA_3010.2000.reduit.omit$n027, FDS_RA_3010.2010.reduit.omit$n027),
+  "n027_mod" = c(FDS_RA_3010.2000.reduit.omit$n027_mod, FDS_RA_3010.2010.reduit.omit$n027_mod),
+  "n027_lib" = c(FDS_RA_3010.2000.reduit.omit$n027_lib, FDS_RA_3010.2010.reduit.omit$n027_lib),
+  "valeur" = c(FDS_RA_3010.2000.reduit.omit$valeur, FDS_RA_3010.2010.reduit.omit$valeur),
+  "qualite" = c(FDS_RA_3010.2000.reduit.omit$qualite, FDS_RA_3010.2010.reduit.omit$qualite)
+)
+
+summary(cheptels_par_cantons)
+
+write.csv(cheptels_par_cantons, file="..\\CSVFINAL\\cheptels_par_cantons.csv", row.names = FALSE, fileEncoding = "UTF-8")
 
 ################################################################################
 #                           Communes par territoire                            #
 ################################################################################
 
 communes_par_territoire_de_projet_de_la_collectivite_territoriale_de_corse.lowerCase <- data.frame(
+  "id" = 1:length(communes_par_territoire_de_projet_de_la_collectivite_territoriale_de_corse$Commune),
   "commune" = format.text(communes_par_territoire_de_projet_de_la_collectivite_territoriale_de_corse$Commune),
   "canton" = format.text(communes_par_territoire_de_projet_de_la_collectivite_territoriale_de_corse$Canton),
   "departement" = format.text(communes_par_territoire_de_projet_de_la_collectivite_territoriale_de_corse$Département),
@@ -197,9 +229,18 @@ write.csv(communes_par_territoire_de_projet_de_la_collectivite_territoriale_de_c
 ################################################################################
 
 volumeseaubrutefacturesparperimetres.lowerCase = data.frame(
+  "id" = 1:length(volumeseaubrutefacturesparperimetres$Date),
   "date" = volumeseaubrutefacturesparperimetres$Date,
   "territoire" = format.text(volumeseaubrutefacturesparperimetres$Territoire),
   "volume_eau_brute" = volumeseaubrutefacturesparperimetres$Volume.Eau.Brute
 )
 
 write.csv(volumeseaubrutefacturesparperimetres.lowerCase, file="..\\csv_volEau_&_communes\\volumes_eau_brute_factures_par_perimetres.csv", row.names = FALSE, fileEncoding = "UTF-8")
+
+################################################################################
+#                              Tables des faits                                #
+################################################################################
+
+
+
+
