@@ -285,6 +285,7 @@ for (volume in volumeseaubrutefacturesparperimetres.lowerCase$volume_eau_brute) 
 }
 
 faits <- data.frame(
+  "id" = 1:length(faits.id_cheptel),
   "id_cheptel" = faits.id_cheptel,
   "id_commune" = faits.id_commune,
   "id_volume" = faits.id_volume,
