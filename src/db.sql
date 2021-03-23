@@ -14,9 +14,9 @@ DROP TABLE faits CASCADE CONSTRAINTS;
 
 CREATE TABLE cheptels_par_canton
 (
-    id               integer NOT NULL,
+    id               integer      NOT NULL,
     nom              varchar(100) NOT NULL,
-    annref           integer NOT NULL,
+    annref           integer      NOT NULL,
     canton           varchar(100) NOT NULL,
     canton_mod       varchar(100) NOT NULL,
     canton_lib       varchar(100) NULL,
@@ -46,7 +46,7 @@ CREATE TABLE cheptels_par_canton
 
 CREATE TABLE communes_par_territoire
 (
-    id          integer NOT NULL,
+    id          integer      NOT NULL,
     commune     varchar(100) NOT NULL,
     canton      varchar(100) NOT NULL,
     departement varchar(100) NOT NULL,
@@ -64,7 +64,7 @@ CREATE TABLE communes_par_territoire
 
 CREATE TABLE territoires
 (
-    id           integer NOT NULL,
+    id           integer      NOT NULL,
     territoire_1 varchar(100) NOT NULL,
 
     CONSTRAINT territoires_pk PRIMARY KEY (id)
@@ -78,9 +78,9 @@ CREATE TABLE territoires
 
 CREATE TABLE corresp_canton_territoire
 (
-    id     integer NOT NULL,
-    canton varchar(100) NOT NULL,
-    id_territoire     integer(5) NOT NULL,
+    id            integer      NOT NULL,
+    canton        varchar(100) NOT NULL,
+    id_territoire integer      NOT NULL,
 
     CONSTRAINT corresp_canton_territoire_pk PRIMARY KEY (id),
     CONSTRAINT fk_territoires_1 FOREIGN KEY (id_territoire) REFERENCES territoires (id)
@@ -96,9 +96,9 @@ CREATE TABLE corresp_canton_territoire
 
 CREATE TABLE volumes_eau
 (
-    id     integer NOT NULL,
-    annee   integer NOT NULL,
-    volume integer NOT NULL,
+    id            integer NOT NULL,
+    annee         integer NOT NULL,
+    volume        integer NOT NULL,
     id_territoire integer NOT NULL,
 
     CONSTRAINT volumes_eau_pk PRIMARY KEY (id),
