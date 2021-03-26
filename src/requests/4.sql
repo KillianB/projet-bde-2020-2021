@@ -1,6 +1,6 @@
-/*  Indice d'élevage par canton  */
+/*  Nombre d'animaux par canton  */
 
 SELECT C.canton_mod AS CANTON, SUM(C.valeur) AS Indice
-FROM cheptels_par_canton C, faits F
+FROM admi_49.cheptels_par_canton C, admi_49.faits F
 WHERE C.id = F.id_cheptel
-GROUP BY C.canton_mod
+GROUP BY C.canton_mod;
