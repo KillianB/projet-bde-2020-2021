@@ -1,7 +1,7 @@
 import csv
 
 #Recuperation des noms de territoires et de leurs id
-with open('territoires.csv') as csv_file:
+with open('../../CSVFINAL/territoires.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
 
     cpt = 0
@@ -18,7 +18,7 @@ with open('territoires.csv') as csv_file:
     arrayterri.pop(0)
 
 #Ouverture du fichier CSV a modifier
-with open('volumes_eau_brute_factures_par_perimetres.csv') as csv_file:
+with open('../../csv_volEau_&_communes/volumes_eau_brute_factures_par_perimetres.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
 
@@ -47,7 +47,7 @@ with open('volumes_eau_brute_factures_par_perimetres.csv') as csv_file:
         #print(new_rows[i])
 
 #Construction du nouveau fichier
-with open('newFile.csv','w') as csv_file:
+with open('../../CSVFINAL/volumes_eau_brute_factures_par_perimetres.csv','w') as csv_file:
     csv_writer = csv.writer(csv_file, delimiter=',')
     csv_writer.writerows([['id', 'date', 'territoire', 'volume_eau_brute']])
     csv_writer.writerows(new_rows)
