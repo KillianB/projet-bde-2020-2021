@@ -1,6 +1,5 @@
-/*  Nombre d'animaux par canton  */
+/*  Nombre moyen d'animaux par cheptel par canton  */
 
-SELECT C.canton_mod AS CANTON, SUM(C.valeur) AS Indice
-FROM admi_49.cheptels_par_canton C, admi_49.faits F
-WHERE C.id = F.id_cheptel
-GROUP BY C.canton_mod;
+SELECT canton_lib AS CANTON, SUM(valeur) / COUNT(*) AS Moyenne
+FROM admi_49.cheptels_par_canton
+GROUP BY (canton_lib);
